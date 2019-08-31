@@ -1,15 +1,16 @@
-import Dependencies._
-
-ThisBuild / scalaVersion     := "2.13.0"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "dev.nomadblacky"
+ThisBuild / scalaVersion := "2.13.0"
+ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / organization := "dev.nomadblacky"
 ThisBuild / organizationName := "scala-js-sandbox"
 
 lazy val root = (project in file("."))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     name := "scala-js-sandbox",
-    libraryDependencies += scalaTest % Test,
+    libraryDependencies ++= Seq(
+        "org.scala-js"  %%% "scalajs-dom" % "0.9.7",
+        "org.scalatest" %% "scalatest"    % "3.0.8" % Test
+      ),
     scalaJSUseMainModuleInitializer := true
   )
 
