@@ -12,7 +12,7 @@ object TutorialApp {
   }
 
   def appendPar(targetNode: dom.Node, text: String): Unit = {
-    val parNode = document.createElement("p")
+    val parNode  = document.createElement("p")
     val textNode = document.createTextNode(text)
     parNode.appendChild(textNode)
     targetNode.appendChild(parNode)
@@ -24,6 +24,8 @@ object TutorialApp {
 
   def setupUI(): Unit = {
     $("body").append("<p>Hello jQuery!</p>")
-    $("#click-me-button").click(() => addClickedMessage())
+    $("""<button type="button">Click me!</button>""")
+      .click(() => addClickedMessage())
+      .appendTo($("body"))
   }
 }
